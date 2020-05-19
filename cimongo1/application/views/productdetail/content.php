@@ -1,0 +1,113 @@
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/styles/product.css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/styles/product_responsive.css')?>">
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('public/styles/cart.css') ?>">
+	<div class="home">
+	<div class="home_container">
+        <div class="home_background" style="background-image:url(<?php echo base_url('public/images/contact.jpg')?>)"></div>
+        <div class="home_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="<?php echo base_url('home')?>">Home</a></li>
+                                    <li><?php echo ($products[0]['product_name'])?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	</div>
+
+	<!-- Product Details -->
+
+	<div class="product_details">
+		<div class="container">
+			<div class="row details_row">
+
+				<!-- Product Image -->
+				<div class="col-lg-6">
+					<div class="details_image">
+						<div class="details_image_large"><img src="<?php echo ($products[0]['picture'])?>" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+					</div>
+				</div>
+
+				<!-- Product Content -->
+				<div class="col-lg-6">
+					<div class="details_content">
+						<div class="details_name"><?php echo ($products[0]['product_name'])?></div>
+						<!-- <div class="details_discount">$75000</div> -->
+						<div class="details_price">$ <?php echo ($products[0]['buyPrice'])?></div>
+
+						<!-- In Stock -->
+					
+						<div class="details_text">
+						<p><?php echo ($products[0]['description'])?><br>
+						<form method="post" action="<?php echo base_url('cart/addToCart');?>">
+						<input type="hidden" name="product_id" class="form-control" value="<?php echo ($products[0]['product_id'])?>" >
+						</p>
+						</div>
+						<div class="product_quantity_container">
+								<div class="product_quantity clearfix">
+									<span>Qty</span>
+									<input name="quantity" id="quantity_input" type="text" pattern="[0-9]*" value="1">
+									<div class="quantity_buttons">
+										<div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
+										<div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+									</div>
+								</div>
+								<button  type="submit" class="button contact_button"><span> Add to cart</span></button>
+						</form>
+
+						</div>
+
+						<!-- Share -->
+						<div class="details_share">
+							<span>Share:</span>
+							<ul>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row description_row">
+				<div class="col">
+					<div class="description_title_container">
+						<div class="description_title">Description</div>
+						
+					</div>
+					<div class="description_text">
+					<p><?php echo ($products[0]['description'])?><br>
+					
+					</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+<script src="plugins/parallax-js-master/parallax.min.js"></script>
+<script src="js/product.js"></script>
+<style type="text/css">
+	.img-resize img {
+		width: 170px;
+		height: auto;
+	}
+
+	.img-resize {
+		width: 170px;
+		height: 170px;
+		overflow: hidden;
+		text-align: center;
+    }
+    
+</style>
